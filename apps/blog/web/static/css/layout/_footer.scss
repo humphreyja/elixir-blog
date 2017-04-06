@@ -1,0 +1,22 @@
+footer {
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 50px;
+
+    a {
+      color: black;
+    }
+  }
+
+}
+
+@media (max-width: $phone) {
+  footer {
+    .container {
+      flex-flow: column;
+    }
+  }
+}

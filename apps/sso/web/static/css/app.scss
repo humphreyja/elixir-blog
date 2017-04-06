@@ -1,0 +1,85 @@
+/* This file is for your main application css. */
+
+$font-family: sans-serif;
+$body-background: #fff;
+
+@import "bourbon";
+@import "components/flash_messages";
+@import "components/buttons";
+
+
+
+
+body,
+html {
+  background-color: $body-background;
+  font-family: $font-family;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sign-in {
+
+  .container {
+    background: white;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 2px 2px 6px #888;
+
+    h3 {
+      margin: 0;
+      padding: 20px 10px;
+      background: black;
+      color: white;
+      font-weight: lighter;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    & > p {
+      margin: 15px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    form {
+      padding: 15px;
+    }
+
+    .actions {
+      margin: 20px 0;
+    }
+
+    .helper-actions {
+      margin: 15px 5px;
+      font-size: 12px;
+
+      a {
+        color: black;
+      }
+    }
+
+    .sign-in-fields {
+      display: flex;
+      flex-flow: column;
+
+      input {
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #333;
+        padding: 10px 1px;
+        margin: 10px 0;
+        font-size: 18px;
+        opacity: 0.7;
+
+        &:focus {
+          outline: none;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+$default-button-color: black;
+$default-button-text-color: white;
+
+$hover-darken-amount: 5%;
+$hover-darken-border-amount: 6%;
+
+$darken-border-amount: 3%;
+
+.button,
+button,
+input[type="button"],
+input[type="submit"] {
+  @include transition(all 0.2s ease-in-out);
+  background-color: $default-button-color;
+  border: 1px solid darken($default-button-color, $darken-border-amount);
+  border-radius: 3px;
+  color: $default-button-text-color;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0.625em 1.250em;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    @include transition(all 0.2s);
+    background-color: darken($default-button-color, $hover-darken-amount);
+    border-color: darken($default-button-color, $hover-darken-border-amount);
+  }
+
+  &.transparent {
+    background-color: transparent;
+
+    &:hover {
+      background-color: rgba(black, 0.2);
+    }
+  }
+
+  &.negative {
+    background-color: $default-button-text-color;
+    border-color: darken($default-button-text-color, $darken-border-amount);
+    color: $default-button-color;
+
+    &:hover {
+      @include transition(all 0.2s);
+      background-color: darken($default-button-text-color, $hover-darken-amount);
+      border-color: darken($default-button-text-color, $hover-darken-border-amount);
+    }
+
+    &.transparent {
+      background-color: transparent;
+
+      &:hover {
+        background-color: rgba(black, 0.2);
+      }
+    }
+  }
+
+  &.float {
+    box-shadow: 2px 2px 4px #333;
+  }
+
+  &.large {
+    font-size: 1.2em;
+  }
+
+  &.normal-text {
+    text-shadow: none;
+  }
+
+  &.small {
+    font-size: 0.8em;
+  }
+
+  &.soft {
+    border-radius: 2px;
+  }
+
+  &.wide {
+    padding: 0.625em 2.250em;
+  }
+
+  &.border-less,
+  &.borderless {
+    border: 0;
+  }
+
+  &.google-fab,
+  &.google-action-button {
+    border-radius: 100%;
+    bottom: 0;
+    font-size: 35px;
+    height: 54px;
+    line-height: 54px;
+    margin: 0 8px 9px 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 54px;
+
+    &:hover {
+      @include transform(scale(1.1));
+    }
+  }
+}
+
+button[disabled=disabled], button:disabled,
+input[type="submit"]:disabled {
+    cursor: auto;
+    opacity: 0;
+}

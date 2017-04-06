@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= if meta_author = Map.get(assigns, :meta_author) do %>
+      <meta name="author" content="<%= meta_author %>">
+    <% end %>
+    <%= if meta_description = Map.get(assigns, :meta_description) do %>
+      <meta name="description" content="<%= meta_description %>">
+    <% end %>
+    <%= if meta_title = Map.get(assigns, :meta_title) do %>
+      <meta name="title" content="<%= meta_title %>">
+      <title><%= meta_title %></title>
+    <% else %>
+      <meta name="title" content="Understanding stuff">
+    <% end %>
+
+    <%= if title = Map.get(assigns, :title) do %>
+      <title><%= title %></title>
+    <% else %>
+      <title>Understanding stuff</title>
+    <% end %>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+  </head>
+
+  <body>
+      <%= render "header.html", signed_in: signed_in?(@conn), conn: @conn %>
+
+
+      <%= if notice = get_flash(@conn, :info) do %>
+        <div class="flash-notice"><%= notice %></div>
+      <% end %>
+      <%= if alert = get_flash(@conn, :error) do %>
+        <div class="flash-alert"><%= alert %></div>
+      <% end %>
+
+      <div class="page">
+        <main>
+          <%= render @view_module, @view_template, assigns %>
+        </main>
+
+      </div>
+
+      <%= render "footer.html" %>
+
+
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

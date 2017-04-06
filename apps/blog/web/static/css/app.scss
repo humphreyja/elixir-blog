@@ -1,0 +1,12 @@
+$content-font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+$font-family: sans-serif;
+$body-background: #faf8ed;
+$phone: 500px;
+
+@import "bourbon";
+@import "components/buttons";
+@import "components/flash_messages";
+@import "layout/body";
+@import "layout/header";
+@import "layout/footer";
+@import "components/blog_post";

@@ -1,0 +1,33 @@
+<h3>Sign In</h3>
+
+<%= form_for @conn, session_path(@conn, :create), [as: :session], fn f  -> %>
+
+  <div class="sign-in-fields">
+    <% login_field = Coherence.Config.login_field %>
+    <%= text_input f, login_field, required: "", placeholder: "Email" %>
+    <%= error_tag f, login_field %>
+
+    <%= password_input f, :password, required: "", placeholder: "Password" %>
+    <%= error_tag f, :password %>
+
+  </div>
+  <%= if @remember do %>
+    <div class="form-group">
+      <input type="checkbox"  name="remember"> Remember Me?
+    </div>
+    <br />
+  <% end %>
+
+  <div class="actions">
+    <%= submit "Sign In", class: "button borderless" %>
+    <% ret_path = return_to_app_path(@conn) %>
+    <%= if ret_path != nil do %>
+      <%= link "Cancel", to: ret_path, class: "button negative transparent borderless" %>
+    <% end %>
+  </div>
+
+  <div class="helper-actions">
+    <%= coherence_links(@conn, :new_session) %>
+  </div>
+
+<% end %>

@@ -1,0 +1,15 @@
+<h3>Reset Password</h3>
+<p>Enter your email, and we will send you an email with a link to reset your password</p>
+
+<%= form_for @changeset, password_path(@conn, :create), [as: :password], fn f  -> %>
+
+  <div class="sign-in-fields">
+    <%= text_input f, :email, required: "", placeholder: "Email" %>
+    <%= error_tag f, :email %>
+  </div>
+
+  <div class="actions">
+    <%= submit "Reset Password", class: "button borderless" %>
+    <%= link "Cancel", to: Coherence.Config.logged_out_url("/"), class: "button negative transparent borderless" %>
+  </div>
+<% end %>

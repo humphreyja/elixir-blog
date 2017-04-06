@@ -1,0 +1,19 @@
+<h3>Create a New Password</h3>
+
+<%= form_for @changeset, password_path(@conn, :update, @changeset.data), [as: :password], fn f  -> %>
+
+  <%= hidden_input f, :reset_password_token %>
+
+  <div class="sign-in-fields">
+    <%= password_input f, :password, class: "form-control", required: "", placeholder: "New Password" %>
+    <%= error_tag f, :password %>
+
+    <%= password_input f, :password_confirmation, class: "form-control", required: "", placeholder: "Retype Password" %>
+    <%= error_tag f, :password_confirmation %>
+  </div>
+
+  <div class="actions">
+    <%= submit "Update Password", class: "button borderless" %>
+    <%= link "Cancel", to: Coherence.Config.logged_out_url("/"), class: "button negative transparent borderless" %>
+  </div>
+<% end %>

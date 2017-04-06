@@ -1,0 +1,16 @@
+<div class="container blog-post">
+  <img class="post-image" src='<%= static_path(@conn, "/images/Elephant.jpg") %>'>
+  <div class="post-title"><%= @post.title %></div>
+  <div class="post-author">
+    Written by: <%= if @post.author_id do %>
+      <%= @post.author.name %>
+    <% else %>
+      Unkown
+    <% end %>
+  </div>
+  <div class="post-content"><%= @post.content %></div>
+
+  <div class="actions">
+    <%= link "Back", to: post_path(@conn, :index), class: "button negative transparent borderless" %>
+  </div>
+</div>

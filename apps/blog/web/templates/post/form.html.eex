@@ -1,0 +1,29 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= text_input f, :title, placeholder: "Title", class: "post-title" %>
+  <div class="post-author">
+  <%= if f.data.author_id do %>
+    <%= f.data.author.name %>
+  <% else %>
+    <%= if @author do %>
+      <%= hidden_input f, :author_id, value: @author.id %>
+      <%= @author.name %>
+    <% else %>
+      Unkown
+    <% end %>
+  <% end %>
+  </div>
+  <%= textarea f, :content, class: "post-content", placeholder: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." %>
+
+
+  <h4>Details</h4>
+
+  <%= text_input f, :description, placeholder: "Description", class: "generic-input" %>
+  <%= text_input f, :slug, placeholder: "Slug", class: "generic-input" %>
+  <%= text_input f, :meta_title, placeholder: "Meta Title", class: "generic-input" %>
+  <%= text_input f, :meta_description, placeholder: "Meta Description", class: "generic-input" %>
+
+  <div class="actions">
+    <%= link "Cancel", to: @cancel_path, class: "button negative transparent borderless" %>
+    <%= submit "Save", class: "button borderless" %>
+  </div>
+<% end %>

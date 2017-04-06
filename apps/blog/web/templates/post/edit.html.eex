@@ -1,0 +1,5 @@
+<div class="container blog-post">
+  <img class="post-image" src='<%= static_path(@conn, "/images/Elephant.jpg") %>'></img>
+  <%= render "form.html", changeset: @changeset,
+                          action: post_path(@conn, :update, @post), author: @author, cancel_path: post_path(@conn, :index) %>
+</div>

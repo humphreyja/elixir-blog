@@ -1,0 +1,37 @@
+body,
+html {
+  background-color: $body-background;
+  font-family: $content-font-family;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: $font-family;
+}
+
+.container {
+  margin: auto;
+  padding: 0 15px;
+}
+
+.page {
+  display: flex;
+}
+
+main {
+  flex: 1;
+  font-size: 16px;
+  margin: 25px;
+
+  .container {
+    max-width: 55em;
+  }
+}
+
+aside {
+  max-width: 250px;
+}
